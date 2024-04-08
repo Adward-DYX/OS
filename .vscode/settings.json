@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "*.s": "c",
+        "print.h": "c",
+        "interrupt.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
