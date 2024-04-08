@@ -1,0 +1,12 @@
+###
+ # @Author: Adward-DYX 1654783946@qq.com
+ # @Date: 2024-03-20 14:22:26
+ # @LastEditors: Adward-DYX 1654783946@qq.com
+ # @LastEditTime: 2024-03-20 16:53:07
+ # @FilePath: /OS/chapter5/5.3/boot/start
+ # @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+### 
+nasm -I ../include/ -o loader.bin loader.S
+nasm -I ../include/ -o mbr.bin mbr.s
+dd if=mbr.bin of=../../../bochs/hd60M.img bs=512 count=1 conv=notrunc
+dd if=loader.bin of=../../../bochs/hd60M.img bs=512 count=4 seek=2 conv=notrunc

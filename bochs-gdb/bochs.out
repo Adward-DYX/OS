@@ -1,0 +1,988 @@
+00000000000i[      ] Bochs x86 Emulator 2.6.8
+00000000000i[      ]   Built from SVN snapshot on May 3, 2015
+00000000000i[      ] Compiled on Apr  7 2024 at 16:40:55
+00000000000i[      ] System configuration
+00000000000i[      ]   processors: 1 (cores=1, HT threads=1)
+00000000000i[      ]   A20 line support: yes
+00000000000i[      ] IPS is set to 4000000
+00000000000i[      ] CPU configuration
+00000000000i[      ]   SMP support: no
+00000000000i[      ]   level: 6
+00000000000i[      ]   APIC support: xapic
+00000000000i[      ]   FPU support: yes
+00000000000i[      ]   MMX support: yes
+00000000000i[      ]   3dnow! support: no
+00000000000i[      ]   SEP support: yes
+00000000000i[      ]   SIMD support: sse2
+00000000000i[      ]   XSAVE support: no 
+00000000000i[      ]   AES support: no
+00000000000i[      ]   SHA support: no
+00000000000i[      ]   MOVBE support: no
+00000000000i[      ]   ADX support: no
+00000000000i[      ]   x86-64 support: no
+00000000000i[      ]   MWAIT support: yes
+00000000000i[      ] Optimization configuration
+00000000000i[      ]   RepeatSpeedups support: no
+00000000000i[      ]   Fast function calls: no
+00000000000i[      ]   Handlers Chaining speedups: no
+00000000000i[      ] Devices configuration
+00000000000i[      ]   NE2000 support: no
+00000000000i[      ]   PCI support: yes, enabled=yes
+00000000000i[      ]   SB16 support: no
+00000000000i[      ]   USB support: no
+00000000000i[      ]   VGA extension support: vbe
+00000000000i[MEM0  ] allocated memory at 0x789df41dd010. after alignment, vector=0x789df41de000
+00000000000i[MEM0  ] 32.00MB
+00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
+00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/home/adward/OS/bochs-gdb/share/bochs/BIOS-bochs-latest')
+00000000000i[PLUGIN] init_dev of 'pci' plugin device by virtual method
+00000000000i[DEV   ] i440FX PMC present at device 0, function 0
+00000000000i[PLUGIN] init_dev of 'pci2isa' plugin device by virtual method
+00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
+00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
+00000000000i[CMOS  ] Using local time for initial clock
+00000000000i[CMOS  ] Setting initial clock to: Mon Apr  8 11:14:42 2024 (time0=1712546082)
+00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
+00000000000i[DMA   ] channel 4 used by cascade
+00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'vga' plugin device by virtual method
+00000000000i[MEM0  ] Register memory access handlers: 0x0000000a0000 - 0x0000000bffff
+00000000000i[VGA   ] interval=200000, mode=realtime
+00000000000i[MEM0  ] Register memory access handlers: 0x0000e0000000 - 0x0000e0ffffff
+00000000000i[BXVGA ] VBE Bochs Display Extension Enabled
+00000000000i[XGUI  ] test_alloc_colors: 16 colors available out of 16 colors tried
+00000000000i[XGUI  ] font 8 wide x 16 high, display depth = 24
+00000000000i[KEYMAP] Loading keymap from '/home/adward/OS/bochs-gdb/share/bochs/keymaps/x11-pc-us.map'
+00000000000i[KEYMAP] Loaded 168 symbols
+00000000000i[MEM0  ] rom at 0xc0000/41472 ('/home/adward/OS/bochs-gdb/share/bochs/VGABIOS-lgpl-latest')
+00000000000i[PLUGIN] init_dev of 'floppy' plugin device by virtual method
+00000000000i[DMA   ] channel 2 used by Floppy Drive
+00000000000i[PLUGIN] init_dev of 'acpi' plugin device by virtual method
+00000000000i[DEV   ] ACPI Controller present at device 1, function 3
+00000000000i[PLUGIN] init_dev of 'ioapic' plugin device by virtual method
+00000000000i[IOAPIC] initializing I/O APIC
+00000000000i[MEM0  ] Register memory access handlers: 0x0000fec00000 - 0x0000fec00fff
+00000000000i[IOAPIC] IOAPIC enabled (base address = 0xfec00000)
+00000000000i[PLUGIN] init_dev of 'keyboard' plugin device by virtual method
+00000000000i[KBD   ] will paste characters every 400 keyboard ticks
+00000000000i[PLUGIN] init_dev of 'harddrv' plugin device by virtual method
+00000000000i[HD    ] HD on ata0-0: 'hd60M.img', 'flat' mode
+00000000000i[IMG   ] hd_size: 62447616
+00000000000i[HD    ] ata0-0: using specified geometry: CHS=121/16/63
+00000000000i[HD    ] translation on ata0-0 set to 'none'
+00000000000i[HD    ] Using boot sequence disk, none, none
+00000000000i[HD    ] Floppy boot signature check is enabled
+00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
+00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
+00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'speaker' plugin device by virtual method
+00000000000e[PCSPK ] Failed to open /dev/console: 权限不够
+00000000000e[PCSPK ] Deactivating beep on console
+00000000000i[PLUGIN] init_dev of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'parallel' plugin device by virtual method
+00000000000i[PAR   ] parallel port 1 at 0x0378 irq 7
+00000000000i[PLUGIN] init_dev of 'serial' plugin device by virtual method
+00000000000i[SER   ] com1 at 0x03f8 irq 4 (mode: null)
+00000000000i[PLUGIN] register state of 'pci' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci2isa' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'cmos' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'dma' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'vga' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'floppy' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'speaker' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'parallel' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'serial' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'acpi' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'ioapic' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'keyboard' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'harddrv' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci_ide' plugin device by virtual method
+00000000000i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
+00000000000i[CPU0  ] cpu hardware reset
+00000000000i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
+00000000000i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
+00000000000i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
+00000000000i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
+00000000000i[PLUGIN] reset of 'pci' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'cmos' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'dma' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'vga' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'floppy' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'acpi' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'ioapic' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'keyboard' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'harddrv' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'speaker' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'parallel' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'serial' plugin device by virtual method
+00000000000i[GDBST ] addr 000000000000fff0 len 1
+00000000000i[GDBST ] addr 000000000000fff0 len 1
+00000000000i[GDBST ] addr 000000000000ffc0 len 40
+00000000000i[GDBST ] addr 000000000000fff0 len 8
+00000000000i[GDBST ] addr 000000000000fff0 len 7
+00000000000i[GDBST ] addr 00000000c0001500 len 40
+00000000000i[GDBST ] addr 00000000c0001500 len 1
+00000000000i[GDBST ] Setting breakpoint at 00000000c0001500
+00000004661i[BIOS  ] $Revision: 12579 $ $Date: 2014-12-26 11:31:39 +0100 (Fr, 26. Dez 2014) $
+00000318049i[KBD   ] reset-disable command received
+00000320818i[BIOS  ] Starting rombios32
+00000321256i[BIOS  ] Shutdown flag 0
+00000321839i[BIOS  ] ram_size=0x02000000
+00000322260i[BIOS  ] ram_end=32MB
+00000362770i[BIOS  ] Found 1 cpu(s)
+00000376974i[BIOS  ] bios_table_addr: 0x000fa498 end=0x000fcc00
+00000704769i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001032698i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001032717i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001032736i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001032755i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001032765i[P2ISA ] write: ELCR2 = 0x0a
+00001033535i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001041216i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001043495i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001045613i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001045838i[PIDE  ] new BM-DMA address: 0xc000
+00001046454i[BIOS  ] region 4: 0x0000c000
+00001048488i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001048720i[ACPI  ] new irq line = 11
+00001048732i[ACPI  ] new irq line = 9
+00001048757i[ACPI  ] new PM base address: 0xb000
+00001048771i[ACPI  ] new SM base address: 0xb100
+00001048799i[PCI   ] setting SMRAM control register to 0x4a
+00001212892i[CPU0  ] Enter to System Management Mode
+00001212903i[CPU0  ] RSM: Resuming from System Management Mode
+00001376924i[PCI   ] setting SMRAM control register to 0x0a
+00001391790i[BIOS  ] MP table addr=0x000fa570 MPC table addr=0x000fa4a0 size=0xc8
+00001393612i[BIOS  ] SMBIOS table addr=0x000fa580
+00001395793i[BIOS  ] ACPI tables: RSDP addr=0x000fa6a0 ACPI DATA addr=0x01ff0000 size=0xf72
+00001399005i[BIOS  ] Firmware waking vector 0x1ff00cc
+00001400800i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001401523i[BIOS  ] bios_table_cur_addr: 0x000fa6c4
+00001529140i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
+00001529211i[BXVGA ] VBE known Display Interface b0c0
+00001529243i[BXVGA ] VBE known Display Interface b0c5
+00001532168i[VBIOS ] VBE Bios $Id: vbe.c,v 1.65 2014/07/08 18:02:25 vruppert Exp $
+00001876645i[BIOS  ] ata0-0: PCHS=121/16/63 translation=none LCHS=121/16/63
+00002086624i[XGUI  ] charmap update. Font Height is 16
+00005753851i[BIOS  ] IDE time out
+00017844201i[BIOS  ] Booting from 0000:7c00
+00017854297i[BIOS  ] *** int 15h function AX=e820, BX=4150 not yet supported!
+00018077745i[GDBST ] found breakpoint at c0001500
+00018077745i[GDBST ] stopped with ac1
+00018077745i[GDBST ] reg 8 set to 00000000c0001500
+00018077745i[GDBST ] reg 41 set to 00000000ffffffff
+00018077745i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077745i[GDBST ] addr 00000000c0001500 len 1
+00018077745i[GDBST ] addr 00000000c009f000 len 40
+00018077745i[GDBST ] stepping
+00018077746i[GDBST ] stopped with ac2
+00018077746i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077746i[GDBST ] stepping
+00018077747i[GDBST ] stopped with ac2
+00018077747i[GDBST ] stepping
+00018077748i[GDBST ] stopped with ac2
+00018077748i[GDBST ] stepping
+00018077749i[GDBST ] stopped with ac2
+00018077749i[GDBST ] addr 00000000c0001509 len 1
+00018077749i[GDBST ] addr 00000000c009f000 len 40
+00018077749i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077749i[GDBST ] addr 00000000c0001509 len 1
+00018077749i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077749i[GDBST ] stepping
+00018077750i[GDBST ] stopped with ac2
+00018077750i[GDBST ] stepping
+00018077751i[GDBST ] stopped with ac2
+00018077751i[GDBST ] addr 00000000c0001a20 len 1
+00018077751i[GDBST ] addr 00000000c0001a00 len 40
+00018077751i[GDBST ] addr 00000000c009efc0 len 40
+00018077751i[GDBST ] addr 00000000c009f000 len 40
+00018077751i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077751i[GDBST ] addr 00000000c0001a20 len 1
+00018077751i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077751i[GDBST ] stepping
+00018077752i[GDBST ] stopped with ac2
+00018077752i[GDBST ] addr 00000000c0001a21 len 1
+00018077752i[GDBST ] addr 00000000c0001a00 len 40
+00018077752i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077752i[GDBST ] addr 00000000c0001a21 len 1
+00018077752i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077752i[GDBST ] stepping
+00018077753i[GDBST ] stopped with ac2
+00018077753i[GDBST ] addr 00000000c0001a22 len 1
+00018077753i[GDBST ] addr 00000000c0001a00 len 40
+00018077753i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077753i[GDBST ] addr 00000000c0001a22 len 1
+00018077753i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077753i[GDBST ] stepping
+00018077754i[GDBST ] stopped with ac2
+00018077754i[GDBST ] addr 00000000c0001a24 len 1
+00018077754i[GDBST ] addr 00000000c0001a00 len 40
+00018077754i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077754i[GDBST ] addr 00000000c0001a24 len 1
+00018077754i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077754i[GDBST ] stepping
+00018077755i[GDBST ] stopped with ac2
+00018077755i[GDBST ] addr 00000000c0001a28 len 1
+00018077755i[GDBST ] addr 00000000c0001a00 len 40
+00018077755i[GDBST ] addr 00000000c009efc0 len 40
+00018077755i[GDBST ] addr 0000000000000000 len 8
+00018077755i[GDBST ] addr 0000000000000000 len 7
+00018077755i[GDBST ] addr 0000000000000000 len 40
+00018077755i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077755i[GDBST ] addr 00000000c0001a28 len 1
+00018077755i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077755i[GDBST ] stepping
+00018077756i[GDBST ] stopped with ac2
+00018077756i[GDBST ] addr 00000000c0001a2a len 1
+00018077756i[GDBST ] addr 00000000c0001a00 len 40
+00018077756i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077756i[GDBST ] addr 00000000c0001a2a len 1
+00018077756i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077756i[GDBST ] stepping
+00018077757i[GDBST ] stopped with ac2
+00018077757i[GDBST ] addr 00000000c0001a2d len 1
+00018077757i[GDBST ] addr 00000000c0001a00 len 40
+00018077757i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077757i[GDBST ] addr 00000000c0001a2d len 1
+00018077757i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077757i[GDBST ] stepping
+00018077758i[GDBST ] stopped with ac2
+00018077758i[GDBST ] addr 00000000c0001a2f len 1
+00018077758i[GDBST ] addr 00000000c0001a00 len 40
+00018077758i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077758i[GDBST ] addr 00000000c0001a2f len 1
+00018077758i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077758i[GDBST ] stepping
+00018077759i[GDBST ] stopped with ac2
+00018077759i[GDBST ] addr 00000000c0001a30 len 1
+00018077759i[GDBST ] addr 00000000c0001a00 len 40
+00018077759i[GDBST ] addr 00000000c009efc0 len 40
+00018077759i[GDBST ] addr 0000000000000049 len 8
+00018077759i[GDBST ] addr 0000000000000049 len 7
+00018077759i[GDBST ] addr 0000000000000040 len 40
+00018077759i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077759i[GDBST ] addr 00000000c0001a30 len 1
+00018077759i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077759i[GDBST ] stepping
+00018077760i[GDBST ] stopped with ac2
+00018077760i[GDBST ] addr 00000000c0001a3e len 1
+00018077760i[GDBST ] addr 00000000c0001a00 len 40
+00018077760i[GDBST ] addr 00000000c0001a40 len 40
+00018077760i[GDBST ] addr 00000000c009efc0 len 40
+00018077760i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077760i[GDBST ] addr 00000000c0001a3e len 1
+00018077760i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077760i[GDBST ] stepping
+00018077761i[GDBST ] stopped with ac2
+00018077761i[GDBST ] addr 00000000c0001a3f len 1
+00018077761i[GDBST ] addr 00000000c0001a00 len 40
+00018077761i[GDBST ] addr 00000000c0001a40 len 40
+00018077761i[GDBST ] addr 00000000c009ef80 len 40
+00018077761i[GDBST ] addr 0000000000000000 len 8
+00018077761i[GDBST ] addr 0000000000000000 len 7
+00018077761i[GDBST ] addr 0000000000000000 len 40
+00018077761i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077761i[GDBST ] addr 00000000c0001a3f len 1
+00018077761i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077761i[GDBST ] stepping
+00018077762i[GDBST ] stopped with ac2
+00018077762i[GDBST ] addr 00000000c0001a43 len 1
+00018077762i[GDBST ] addr 00000000c0001a00 len 40
+00018077762i[GDBST ] addr 00000000c0001a40 len 40
+00018077762i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077762i[GDBST ] addr 00000000c0001a43 len 1
+00018077762i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077762i[GDBST ] stepping
+00018077763i[GDBST ] stopped with ac2
+00018077763i[GDBST ] addr 00000000c0001a45 len 1
+00018077763i[GDBST ] addr 00000000c0001a00 len 40
+00018077763i[GDBST ] addr 00000000c0001a40 len 40
+00018077763i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077763i[GDBST ] addr 00000000c0001a45 len 1
+00018077763i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077763i[GDBST ] stepping
+00018077764i[GDBST ] stopped with ac2
+00018077764i[GDBST ] addr 00000000c0001a49 len 1
+00018077764i[GDBST ] addr 00000000c0001a00 len 40
+00018077764i[GDBST ] addr 00000000c0001a40 len 40
+00018077764i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077764i[GDBST ] addr 00000000c0001a49 len 1
+00018077764i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077764i[GDBST ] stepping
+00018077765i[GDBST ] stopped with ac2
+00018077765i[GDBST ] addr 00000000c0001a4b len 1
+00018077765i[GDBST ] addr 00000000c0001a00 len 40
+00018077765i[GDBST ] addr 00000000c0001a40 len 40
+00018077765i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077765i[GDBST ] addr 00000000c0001a4b len 1
+00018077765i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077765i[GDBST ] stepping
+00018077766i[GDBST ] stopped with ac2
+00018077766i[GDBST ] addr 00000000c0001a4c len 1
+00018077766i[GDBST ] addr 00000000c0001a00 len 40
+00018077766i[GDBST ] addr 00000000c0001a40 len 40
+00018077766i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077766i[GDBST ] addr 00000000c0001a4c len 1
+00018077766i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077766i[GDBST ] stepping
+00018077767i[GDBST ] stopped with ac2
+00018077767i[GDBST ] addr 00000000c0001a50 len 1
+00018077767i[GDBST ] addr 00000000c0001a00 len 40
+00018077767i[GDBST ] addr 00000000c0001a40 len 40
+00018077767i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077767i[GDBST ] addr 00000000c0001a50 len 1
+00018077767i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077767i[GDBST ] stepping
+00018077768i[GDBST ] stopped with ac2
+00018077768i[GDBST ] addr 00000000c0001a51 len 1
+00018077768i[GDBST ] addr 00000000c0001a00 len 40
+00018077768i[GDBST ] addr 00000000c0001a40 len 40
+00018077768i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077768i[GDBST ] addr 00000000c0001a51 len 1
+00018077768i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077768i[GDBST ] stepping
+00018077769i[GDBST ] stopped with ac2
+00018077769i[GDBST ] addr 00000000c0001a53 len 1
+00018077769i[GDBST ] addr 00000000c0001a00 len 40
+00018077769i[GDBST ] addr 00000000c0001a40 len 40
+00018077769i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077769i[GDBST ] addr 00000000c0001a53 len 1
+00018077769i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077769i[GDBST ] stepping
+00018077770i[GDBST ] stopped with ac2
+00018077770i[GDBST ] addr 00000000c0001a57 len 1
+00018077770i[GDBST ] addr 00000000c0001a00 len 40
+00018077770i[GDBST ] addr 00000000c0001a40 len 40
+00018077770i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077770i[GDBST ] addr 00000000c0001a57 len 1
+00018077770i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077770i[GDBST ] stepping
+00018077771i[GDBST ] stopped with ac2
+00018077771i[GDBST ] addr 00000000c0001a59 len 1
+00018077771i[GDBST ] addr 00000000c0001a00 len 40
+00018077771i[GDBST ] addr 00000000c0001a40 len 40
+00018077771i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077771i[GDBST ] addr 00000000c0001a59 len 1
+00018077771i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077771i[GDBST ] stepping
+00018077772i[GDBST ] stopped with ac2
+00018077772i[GDBST ] addr 00000000c0001a5a len 1
+00018077772i[GDBST ] addr 00000000c0001a00 len 40
+00018077772i[GDBST ] addr 00000000c0001a40 len 40
+00018077772i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077772i[GDBST ] addr 00000000c0001a5a len 1
+00018077772i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077772i[GDBST ] stepping
+00018077773i[GDBST ] stopped with ac2
+00018077773i[GDBST ] addr 00000000c0001a5e len 1
+00018077773i[GDBST ] addr 00000000c0001a00 len 40
+00018077773i[GDBST ] addr 00000000c0001a40 len 40
+00018077773i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077773i[GDBST ] addr 00000000c0001a5e len 1
+00018077773i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077773i[GDBST ] stepping
+00018077774i[GDBST ] stopped with ac2
+00018077774i[GDBST ] addr 00000000c0001a5f len 1
+00018077774i[GDBST ] addr 00000000c0001a00 len 40
+00018077774i[GDBST ] addr 00000000c0001a40 len 40
+00018077774i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077774i[GDBST ] addr 00000000c0001a5f len 1
+00018077774i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077774i[GDBST ] stepping
+00018077775i[GDBST ] stopped with ac2
+00018077775i[GDBST ] addr 00000000c0001a62 len 1
+00018077775i[GDBST ] addr 00000000c0001a00 len 40
+00018077775i[GDBST ] addr 00000000c0001a40 len 40
+00018077775i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077775i[GDBST ] addr 00000000c0001a62 len 1
+00018077775i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077775i[GDBST ] stepping
+00018077776i[GDBST ] stopped with ac2
+00018077776i[GDBST ] addr 00000000c0001a66 len 1
+00018077776i[GDBST ] addr 00000000c0001a00 len 40
+00018077776i[GDBST ] addr 00000000c0001a40 len 40
+00018077776i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077776i[GDBST ] addr 00000000c0001a66 len 1
+00018077776i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077776i[GDBST ] stepping
+00018077777i[GDBST ] stopped with ac2
+00018077777i[GDBST ] addr 00000000c0001a69 len 1
+00018077777i[GDBST ] addr 00000000c0001a00 len 40
+00018077777i[GDBST ] addr 00000000c0001a40 len 40
+00018077777i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077777i[GDBST ] addr 00000000c0001a69 len 1
+00018077777i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077777i[GDBST ] stepping
+00018077778i[GDBST ] stopped with ac2
+00018077778i[GDBST ] addr 00000000c0001a6b len 1
+00018077778i[GDBST ] addr 00000000c0001a00 len 40
+00018077778i[GDBST ] addr 00000000c0001a40 len 40
+00018077778i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077778i[GDBST ] addr 00000000c0001a6b len 1
+00018077778i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077778i[GDBST ] stepping
+00018077779i[GDBST ] stopped with ac2
+00018077779i[GDBST ] addr 00000000c0001a6e len 1
+00018077779i[GDBST ] addr 00000000c0001a00 len 40
+00018077779i[GDBST ] addr 00000000c0001a40 len 40
+00018077779i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077779i[GDBST ] addr 00000000c0001a6e len 1
+00018077779i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077779i[GDBST ] stepping
+00018077780i[GDBST ] stopped with ac2
+00018077780i[GDBST ] addr 00000000c0001a70 len 1
+00018077780i[GDBST ] addr 00000000c0001a00 len 40
+00018077780i[GDBST ] addr 00000000c0001a40 len 40
+00018077780i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077780i[GDBST ] addr 00000000c0001a70 len 1
+00018077780i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077780i[GDBST ] stepping
+00018077781i[GDBST ] stopped with ac2
+00018077781i[GDBST ] addr 00000000c0001a73 len 1
+00018077781i[GDBST ] addr 00000000c0001a00 len 40
+00018077781i[GDBST ] addr 00000000c0001a40 len 40
+00018077781i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077781i[GDBST ] addr 00000000c0001a73 len 1
+00018077781i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077781i[GDBST ] stepping
+00018077782i[GDBST ] stopped with ac2
+00018077782i[GDBST ] addr 00000000c0001a75 len 1
+00018077782i[GDBST ] addr 00000000c0001a00 len 40
+00018077782i[GDBST ] addr 00000000c0001a40 len 40
+00018077782i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077782i[GDBST ] addr 00000000c0001a75 len 1
+00018077782i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077782i[GDBST ] stepping
+00018077783i[GDBST ] stopped with ac2
+00018077783i[GDBST ] addr 00000000c0001a8d len 1
+00018077783i[GDBST ] addr 00000000c0001a80 len 40
+00018077783i[GDBST ] addr 00000000c009ef80 len 40
+00018077783i[GDBST ] addr 0000000000000000 len 8
+00018077783i[GDBST ] addr 0000000000000000 len 7
+00018077783i[GDBST ] addr 0000000000000000 len 40
+00018077783i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077783i[GDBST ] addr 00000000c0001a8d len 1
+00018077783i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077783i[GDBST ] stepping
+00018077784i[GDBST ] stopped with ac2
+00018077784i[GDBST ] addr 00000000c0001a90 len 1
+00018077784i[GDBST ] addr 00000000c0001a80 len 40
+00018077784i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077784i[GDBST ] addr 00000000c0001a90 len 1
+00018077784i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077784i[GDBST ] stepping
+00018077785i[GDBST ] stopped with ac2
+00018077785i[GDBST ] addr 00000000c0001a94 len 1
+00018077785i[GDBST ] addr 00000000c0001a80 len 40
+00018077785i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077785i[GDBST ] addr 00000000c0001a94 len 1
+00018077785i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077785i[GDBST ] stepping
+00018077786i[GDBST ] stopped with ac2
+00018077786i[GDBST ] addr 00000000c0001a96 len 1
+00018077786i[GDBST ] addr 00000000c0001a80 len 40
+00018077786i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077786i[GDBST ] addr 00000000c0001a96 len 1
+00018077786i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077786i[GDBST ] stepping
+00018077787i[GDBST ] stopped with ac2
+00018077787i[GDBST ] addr 00000000c0001a9b len 1
+00018077787i[GDBST ] addr 00000000c0001a80 len 40
+00018077787i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077787i[GDBST ] addr 00000000c0001a9b len 1
+00018077787i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077787i[GDBST ] stepping
+00018077788i[GDBST ] stopped with ac2
+00018077788i[GDBST ] addr 00000000c0001a9e len 1
+00018077788i[GDBST ] addr 00000000c0001a80 len 40
+00018077788i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077788i[GDBST ] addr 00000000c0001a9e len 1
+00018077788i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077788i[GDBST ] stepping
+00018077789i[GDBST ] stopped with ac2
+00018077789i[GDBST ] addr 00000000c0001aa0 len 1
+00018077789i[GDBST ] addr 00000000c0001a80 len 40
+00018077789i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077789i[GDBST ] addr 00000000c0001aa0 len 1
+00018077789i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077789i[GDBST ] stepping
+00018077790i[GDBST ] stopped with ac2
+00018077790i[GDBST ] addr 00000000c0001aa5 len 1
+00018077790i[GDBST ] addr 00000000c0001a80 len 40
+00018077790i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077790i[GDBST ] addr 00000000c0001aa5 len 1
+00018077790i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077790i[GDBST ] stepping
+00018077791i[GDBST ] stopped with ac2
+00018077791i[GDBST ] addr 00000000c0001aed len 1
+00018077791i[GDBST ] addr 00000000c0001ac0 len 40
+00018077791i[GDBST ] addr 00000000c009ef80 len 40
+00018077791i[GDBST ] addr 0000000000000000 len 8
+00018077791i[GDBST ] addr 0000000000000000 len 7
+00018077791i[GDBST ] addr 0000000000000000 len 40
+00018077791i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077791i[GDBST ] addr 00000000c0001aed len 1
+00018077791i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077791i[GDBST ] stepping
+00018077792i[GDBST ] stopped with ac2
+00018077792i[GDBST ] addr 00000000c0001af1 len 1
+00018077792i[GDBST ] addr 00000000c0001ac0 len 40
+00018077792i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077792i[GDBST ] addr 00000000c0001af1 len 1
+00018077792i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077792i[GDBST ] stepping
+00018077793i[GDBST ] stopped with ac2
+00018077793i[GDBST ] addr 00000000c0001af3 len 1
+00018077793i[GDBST ] addr 00000000c0001ac0 len 40
+00018077793i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077793i[GDBST ] addr 00000000c0001af3 len 1
+00018077793i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077793i[GDBST ] stepping
+00018077794i[GDBST ] stopped with ac2
+00018077794i[GDBST ] addr 00000000c0001af4 len 1
+00018077794i[GDBST ] addr 00000000c0001ac0 len 40
+00018077794i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077794i[GDBST ] addr 00000000c0001af4 len 1
+00018077794i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077794i[GDBST ] stepping
+00018077795i[GDBST ] stopped with ac2
+00018077795i[GDBST ] addr 00000000c0001af8 len 1
+00018077795i[GDBST ] addr 00000000c0001ac0 len 40
+00018077795i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077795i[GDBST ] addr 00000000c0001af8 len 1
+00018077795i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077795i[GDBST ] stepping
+00018077796i[GDBST ] stopped with ac2
+00018077796i[GDBST ] addr 00000000c0001afa len 1
+00018077796i[GDBST ] addr 00000000c0001ac0 len 40
+00018077796i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077796i[GDBST ] addr 00000000c0001afa len 1
+00018077796i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077796i[GDBST ] stepping
+00018077797i[GDBST ] stopped with ac2
+00018077797i[GDBST ] addr 00000000c0001afb len 1
+00018077797i[GDBST ] addr 00000000c0001ac0 len 40
+00018077797i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077797i[GDBST ] addr 00000000c0001afb len 1
+00018077797i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077797i[GDBST ] stepping
+00018077798i[GDBST ] stopped with ac2
+00018077798i[GDBST ] addr 00000000c0001aff len 1
+00018077798i[GDBST ] addr 00000000c0001ac0 len 40
+00018077798i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077798i[GDBST ] addr 00000000c0001aff len 1
+00018077798i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077798i[GDBST ] stepping
+00018077799i[GDBST ] stopped with ac2
+00018077799i[GDBST ] addr 00000000c0001b01 len 1
+00018077799i[GDBST ] addr 00000000c0001ac0 len 40
+00018077799i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077799i[GDBST ] addr 00000000c0001b01 len 1
+00018077799i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077799i[GDBST ] stepping
+00018077800i[GDBST ] stopped with ac2
+00018077800i[GDBST ] addr 00000000c0001b02 len 1
+00018077800i[GDBST ] addr 00000000c0001ac0 len 40
+00018077800i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077800i[GDBST ] addr 00000000c0001b02 len 1
+00018077800i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077800i[GDBST ] stepping
+00018077801i[GDBST ] stopped with ac2
+00018077801i[GDBST ] addr 00000000c0001b06 len 1
+00018077801i[GDBST ] addr 00000000c0001ac0 len 40
+00018077801i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077801i[GDBST ] addr 00000000c0001b06 len 1
+00018077801i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077801i[GDBST ] stepping
+00018077802i[GDBST ] stopped with ac2
+00018077802i[GDBST ] addr 00000000c0001b08 len 1
+00018077802i[GDBST ] addr 00000000c0001ac0 len 40
+00018077802i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077802i[GDBST ] addr 00000000c0001b08 len 1
+00018077802i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077802i[GDBST ] stepping
+00018077803i[GDBST ] stopped with ac2
+00018077803i[GDBST ] addr 00000000c0001b09 len 1
+00018077803i[GDBST ] addr 00000000c0001b00 len 40
+00018077803i[GDBST ] addr 00000000c009ef80 len 40
+00018077803i[GDBST ] addr 0000000000000000 len 8
+00018077803i[GDBST ] addr 0000000000000000 len 7
+00018077803i[GDBST ] addr 0000000000000000 len 40
+00018077803i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077803i[GDBST ] addr 00000000c0001b09 len 1
+00018077803i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077803i[GDBST ] stepping
+00018077804i[GDBST ] stopped with ac2
+00018077804i[GDBST ] addr 00000000c0001b0a len 1
+00018077804i[GDBST ] addr 00000000c009efc0 len 40
+00018077804i[GDBST ] addr 00000000c0001a00 len 40
+00018077804i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077804i[GDBST ] addr 00000000c0001b0a len 1
+00018077804i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077804i[GDBST ] stepping
+00018077805i[GDBST ] stopped with ac2
+00018077805i[GDBST ] addr 00000000c0001a35 len 1
+00018077805i[GDBST ] addr 00000000c0001a00 len 40
+00018077805i[GDBST ] addr 00000000c009efc0 len 40
+00018077805i[GDBST ] addr 0000000000000049 len 8
+00018077805i[GDBST ] addr 0000000000000049 len 7
+00018077805i[GDBST ] addr 0000000000000040 len 40
+00018077805i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077805i[GDBST ] addr 00000000c0001a35 len 1
+00018077805i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077805i[GDBST ] stepping
+00018077806i[GDBST ] stopped with ac2
+00018077806i[GDBST ] addr 00000000c0001a38 len 1
+00018077806i[GDBST ] addr 00000000c0001a00 len 40
+00018077806i[GDBST ] addr 00000000c009efc0 len 40
+00018077806i[GDBST ] addr 0000000000000000 len 8
+00018077806i[GDBST ] addr 0000000000000000 len 7
+00018077806i[GDBST ] addr 0000000000000000 len 40
+00018077806i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077806i[GDBST ] addr 00000000c0001a38 len 1
+00018077806i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077806i[GDBST ] stepping
+00018077807i[GDBST ] stopped with ac2
+00018077807i[GDBST ] addr 00000000c0001a39 len 1
+00018077807i[GDBST ] addr 00000000c0001a00 len 40
+00018077807i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077807i[GDBST ] addr 00000000c0001a39 len 1
+00018077807i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077807i[GDBST ] stepping
+00018077808i[GDBST ] stopped with ac2
+00018077808i[GDBST ] addr 00000000c0001a28 len 1
+00018077808i[GDBST ] addr 00000000c0001a00 len 40
+00018077808i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077808i[GDBST ] addr 00000000c0001a28 len 1
+00018077808i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077808i[GDBST ] stepping
+00018077809i[GDBST ] stopped with ac2
+00018077809i[GDBST ] addr 00000000c0001a2a len 1
+00018077809i[GDBST ] addr 00000000c0001a00 len 40
+00018077809i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077809i[GDBST ] addr 00000000c0001a2a len 1
+00018077809i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077809i[GDBST ] stepping
+00018077810i[GDBST ] stopped with ac2
+00018077810i[GDBST ] addr 00000000c0001a2d len 1
+00018077810i[GDBST ] addr 00000000c0001a00 len 40
+00018077810i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077810i[GDBST ] addr 00000000c0001a2d len 1
+00018077810i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077810i[GDBST ] stepping
+00018077811i[GDBST ] stopped with ac2
+00018077811i[GDBST ] addr 00000000c0001a2f len 1
+00018077811i[GDBST ] addr 00000000c0001a00 len 40
+00018077811i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077811i[GDBST ] addr 00000000c0001a2f len 1
+00018077811i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077811i[GDBST ] stepping
+00018077812i[GDBST ] stopped with ac2
+00018077812i[GDBST ] addr 00000000c0001a30 len 1
+00018077812i[GDBST ] addr 00000000c0001a00 len 40
+00018077812i[GDBST ] addr 00000000c009efc0 len 40
+00018077812i[GDBST ] addr 0000000000000020 len 8
+00018077812i[GDBST ] addr 0000000000000020 len 7
+00018077812i[GDBST ] addr 0000000000000000 len 40
+00018077812i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077812i[GDBST ] addr 00000000c0001a30 len 1
+00018077812i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077812i[GDBST ] stepping
+00018077813i[GDBST ] stopped with ac2
+00018077813i[GDBST ] addr 00000000c0001a3e len 1
+00018077813i[GDBST ] addr 00000000c0001a00 len 40
+00018077813i[GDBST ] addr 00000000c0001a40 len 40
+00018077813i[GDBST ] addr 00000000c009efc0 len 40
+00018077813i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077813i[GDBST ] addr 00000000c0001a3e len 1
+00018077813i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077813i[GDBST ] stepping
+00018077814i[GDBST ] stopped with ac2
+00018077814i[GDBST ] addr 00000000c0001a3f len 1
+00018077814i[GDBST ] addr 00000000c0001a00 len 40
+00018077814i[GDBST ] addr 00000000c0001a40 len 40
+00018077814i[GDBST ] addr 00000000c009ef80 len 40
+00018077814i[GDBST ] addr 0000000000000000 len 8
+00018077814i[GDBST ] addr 0000000000000000 len 7
+00018077814i[GDBST ] addr 0000000000000000 len 40
+00018077814i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077814i[GDBST ] addr 00000000c0001a3f len 1
+00018077814i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077814i[GDBST ] stepping
+00018077815i[GDBST ] stopped with ac2
+00018077815i[GDBST ] addr 00000000c0001a43 len 1
+00018077815i[GDBST ] addr 00000000c0001a00 len 40
+00018077815i[GDBST ] addr 00000000c0001a40 len 40
+00018077815i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077815i[GDBST ] addr 00000000c0001a43 len 1
+00018077815i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077815i[GDBST ] stepping
+00018077816i[GDBST ] stopped with ac2
+00018077816i[GDBST ] addr 00000000c0001a45 len 1
+00018077816i[GDBST ] addr 00000000c0001a00 len 40
+00018077816i[GDBST ] addr 00000000c0001a40 len 40
+00018077816i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077816i[GDBST ] addr 00000000c0001a45 len 1
+00018077816i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077816i[GDBST ] stepping
+00018077817i[GDBST ] stopped with ac2
+00018077817i[GDBST ] addr 00000000c0001a49 len 1
+00018077817i[GDBST ] addr 00000000c0001a00 len 40
+00018077817i[GDBST ] addr 00000000c0001a40 len 40
+00018077817i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077817i[GDBST ] addr 00000000c0001a49 len 1
+00018077817i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077817i[GDBST ] stepping
+00018077818i[GDBST ] stopped with ac2
+00018077818i[GDBST ] addr 00000000c0001a4b len 1
+00018077818i[GDBST ] addr 00000000c0001a00 len 40
+00018077818i[GDBST ] addr 00000000c0001a40 len 40
+00018077818i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077818i[GDBST ] addr 00000000c0001a4b len 1
+00018077818i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077818i[GDBST ] stepping
+00018077819i[GDBST ] stopped with ac2
+00018077819i[GDBST ] addr 00000000c0001a4c len 1
+00018077819i[GDBST ] addr 00000000c0001a00 len 40
+00018077819i[GDBST ] addr 00000000c0001a40 len 40
+00018077819i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077819i[GDBST ] addr 00000000c0001a4c len 1
+00018077819i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077819i[GDBST ] stepping
+00018077820i[GDBST ] stopped with ac2
+00018077820i[GDBST ] addr 00000000c0001a50 len 1
+00018077820i[GDBST ] addr 00000000c0001a00 len 40
+00018077820i[GDBST ] addr 00000000c0001a40 len 40
+00018077820i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077820i[GDBST ] addr 00000000c0001a50 len 1
+00018077820i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077820i[GDBST ] stepping
+00018077821i[GDBST ] stopped with ac2
+00018077821i[GDBST ] addr 00000000c0001a51 len 1
+00018077821i[GDBST ] addr 00000000c0001a00 len 40
+00018077821i[GDBST ] addr 00000000c0001a40 len 40
+00018077821i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077821i[GDBST ] addr 00000000c0001a51 len 1
+00018077821i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077821i[GDBST ] stepping
+00018077822i[GDBST ] stopped with ac2
+00018077822i[GDBST ] addr 00000000c0001a53 len 1
+00018077822i[GDBST ] addr 00000000c0001a00 len 40
+00018077822i[GDBST ] addr 00000000c0001a40 len 40
+00018077822i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077822i[GDBST ] addr 00000000c0001a53 len 1
+00018077822i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077822i[GDBST ] stepping
+00018077823i[GDBST ] stopped with ac2
+00018077823i[GDBST ] addr 00000000c0001a57 len 1
+00018077823i[GDBST ] addr 00000000c0001a00 len 40
+00018077823i[GDBST ] addr 00000000c0001a40 len 40
+00018077823i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077823i[GDBST ] addr 00000000c0001a57 len 1
+00018077823i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077823i[GDBST ] stepping
+00018077824i[GDBST ] stopped with ac2
+00018077824i[GDBST ] addr 00000000c0001a59 len 1
+00018077824i[GDBST ] addr 00000000c0001a00 len 40
+00018077824i[GDBST ] addr 00000000c0001a40 len 40
+00018077824i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077824i[GDBST ] addr 00000000c0001a59 len 1
+00018077824i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077824i[GDBST ] stepping
+00018077825i[GDBST ] stopped with ac2
+00018077825i[GDBST ] addr 00000000c0001a5a len 1
+00018077825i[GDBST ] addr 00000000c0001a00 len 40
+00018077825i[GDBST ] addr 00000000c0001a40 len 40
+00018077825i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077825i[GDBST ] addr 00000000c0001a5a len 1
+00018077825i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077825i[GDBST ] stepping
+00018077826i[GDBST ] stopped with ac2
+00018077826i[GDBST ] addr 00000000c0001a5e len 1
+00018077826i[GDBST ] addr 00000000c0001a00 len 40
+00018077826i[GDBST ] addr 00000000c0001a40 len 40
+00018077826i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077826i[GDBST ] addr 00000000c0001a5e len 1
+00018077826i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077826i[GDBST ] stepping
+00018077827i[GDBST ] stopped with ac2
+00018077827i[GDBST ] addr 00000000c0001a5f len 1
+00018077827i[GDBST ] addr 00000000c0001a00 len 40
+00018077827i[GDBST ] addr 00000000c0001a40 len 40
+00018077827i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077827i[GDBST ] addr 00000000c0001a5f len 1
+00018077827i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077827i[GDBST ] stepping
+00018077828i[GDBST ] stopped with ac2
+00018077828i[GDBST ] addr 00000000c0001a62 len 1
+00018077828i[GDBST ] addr 00000000c0001a00 len 40
+00018077828i[GDBST ] addr 00000000c0001a40 len 40
+00018077828i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077828i[GDBST ] addr 00000000c0001a62 len 1
+00018077828i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077828i[GDBST ] stepping
+00018077829i[GDBST ] stopped with ac2
+00018077829i[GDBST ] addr 00000000c0001a66 len 1
+00018077829i[GDBST ] addr 00000000c0001a00 len 40
+00018077829i[GDBST ] addr 00000000c0001a40 len 40
+00018077829i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077829i[GDBST ] addr 00000000c0001a66 len 1
+00018077829i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077829i[GDBST ] stepping
+00018077830i[GDBST ] stopped with ac2
+00018077830i[GDBST ] addr 00000000c0001a69 len 1
+00018077830i[GDBST ] addr 00000000c0001a00 len 40
+00018077830i[GDBST ] addr 00000000c0001a40 len 40
+00018077830i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077830i[GDBST ] addr 00000000c0001a69 len 1
+00018077830i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077830i[GDBST ] stepping
+00018077831i[GDBST ] stopped with ac2
+00018077831i[GDBST ] addr 00000000c0001a6b len 1
+00018077831i[GDBST ] addr 00000000c0001a00 len 40
+00018077831i[GDBST ] addr 00000000c0001a40 len 40
+00018077831i[GDBST ] Removing breakpoint at 00000000c0001500
+00018077831i[GDBST ] addr 00000000c0001a6b len 1
+00018077831i[GDBST ] addr 00000000c0001540 len 40
+00018077831i[GDBST ] addr 00000000c0001546 len 1
+00018077831i[GDBST ] Setting breakpoint at 00000000c0001500
+00018077831i[GDBST ] Setting breakpoint at 00000000c0001546
+00018078398i[GDBST ] found breakpoint at c0001546
+00018078398i[GDBST ] stopped with ac1
+00018078398i[GDBST ] reg 8 set to 00000000c0001546
+00018078398i[GDBST ] reg 41 set to 00000000ffffffff
+00018078398i[GDBST ] Removing breakpoint at 00000000c0001500
+00018078398i[GDBST ] Removing breakpoint at 00000000c0001546
+00018078398i[GDBST ] addr 00000000c0001546 len 1
+00018078398i[GDBST ] addr 00000000c009efc0 len 40
+00018078398i[GDBST ] Setting breakpoint at 00000000c0001500
+00018078398i[GDBST ] stepping
+00018078399i[GDBST ] stopped with ac2
+00018078399i[GDBST ] Setting breakpoint at 00000000c0001546
+00018078399i[GDBST ] stepping
+00018078400i[GDBST ] stopped with ac2
+00018078400i[GDBST ] addr 00000000c0001a20 len 1
+00018078400i[GDBST ] addr 00000000c0001a00 len 40
+00018078400i[GDBST ] addr 00000000c009ef80 len 40
+00018078400i[GDBST ] addr 00000000c009efc0 len 40
+00018078400i[GDBST ] addr 00000000c0001552 len 1
+00018078400i[GDBST ] Setting breakpoint at 00000000c0001552
+00018078884i[GDBST ] found breakpoint at c0001552
+00018078884i[GDBST ] stopped with ac1
+00018078884i[GDBST ] reg 8 set to 00000000c0001552
+00018078884i[GDBST ] reg 41 set to 00000000ffffffff
+00018078884i[GDBST ] addr 00000000c0001552 len 1
+00018078884i[GDBST ] addr 00000000c009efc0 len 40
+00018078884i[GDBST ] Removing breakpoint at 00000000c0001552
+00018078884i[GDBST ] Removing breakpoint at 00000000c0001500
+00018078884i[GDBST ] Removing breakpoint at 00000000c0001546
+00018078884i[GDBST ] addr 00000000c0001552 len 1
+00018078884i[GDBST ] Setting breakpoint at 00000000c0001500
+00018078884i[GDBST ] Setting breakpoint at 00000000c0001546
+00018078884i[GDBST ] stepping
+00018078885i[GDBST ] stopped with ac2
+00018078885i[GDBST ] addr 00000000c00018b7 len 1
+00018078885i[GDBST ] addr 00000000c009ef80 len 40
+00018078885i[GDBST ] addr 00000000c009efc0 len 40
+00018078885i[GDBST ] addr 00000000c0001557 len 1
+00018078885i[GDBST ] Setting breakpoint at 00000000c0001557
+00018083915i[GDBST ] found breakpoint at c0001557
+00018083915i[GDBST ] stopped with ac1
+00018083915i[GDBST ] reg 8 set to 00000000c0001557
+00018083915i[GDBST ] reg 41 set to 00000000ffffffff
+00018083915i[GDBST ] addr 00000000c0001557 len 1
+00018083915i[GDBST ] addr 00000000c009efc0 len 40
+00018083915i[GDBST ] Removing breakpoint at 00000000c0001557
+00018083915i[GDBST ] Removing breakpoint at 00000000c0001500
+00018083915i[GDBST ] Removing breakpoint at 00000000c0001546
+00018083915i[GDBST ] addr 00000000c0001557 len 1
+00018083915i[GDBST ] Setting breakpoint at 00000000c0001500
+00018083915i[GDBST ] Setting breakpoint at 00000000c0001546
+00018083915i[GDBST ] stepping
+00018083916i[GDBST ] stopped with ac2
+00018083916i[GDBST ] addr 00000000c00019c9 len 1
+00018083916i[GDBST ] addr 00000000c009ef80 len 40
+00018083916i[GDBST ] addr 00000000c009efc0 len 40
+00018083916i[GDBST ] addr 00000000c000155c len 1
+00018083916i[GDBST ] Setting breakpoint at 00000000c000155c
+00018088193i[GDBST ] found breakpoint at c000155c
+00018088193i[GDBST ] stopped with ac1
+00018088193i[GDBST ] reg 8 set to 00000000c000155c
+00018088193i[GDBST ] reg 41 set to 00000000ffffffff
+00018088193i[GDBST ] addr 00000000c000155c len 1
+00018088193i[GDBST ] addr 00000000c009efc0 len 40
+00018088193i[GDBST ] Removing breakpoint at 00000000c000155c
+00018088193i[GDBST ] Removing breakpoint at 00000000c0001500
+00018088193i[GDBST ] Removing breakpoint at 00000000c0001546
+00018088193i[GDBST ] addr 00000000c000155c len 1
+00018088193i[GDBST ] Setting breakpoint at 00000000c0001500
+00018088193i[GDBST ] Setting breakpoint at 00000000c0001546
+00018088193i[GDBST ] stepping
+00018088194i[GDBST ] stopped with ac2
+00018088194i[GDBST ] stepping
+00018088195i[GDBST ] stopped with ac2
+00018088195i[GDBST ] addr 00000000c000151a len 1
+00018088195i[GDBST ] addr 00000000c009f000 len 40
+00018088195i[GDBST ] addr 000000008ec031fa len 8
+00018088195i[GDBST ] addr 000000008ec031fa len 7
+00018088195i[GDBST ] addr 00000000c009efc0 len 40
+00018088195i[GDBST ] Removing breakpoint at 00000000c0001500
+00018088195i[GDBST ] Removing breakpoint at 00000000c0001546
+00018088195i[GDBST ] addr 00000000c000151a len 1
+00018088195i[GDBST ] Setting breakpoint at 00000000c0001500
+00018088195i[GDBST ] Setting breakpoint at 00000000c0001546
+00018088195i[GDBST ] stepping
+00018088196i[GDBST ] stopped with ac2
+00018088196i[GDBST ] stepping
+00018088197i[GDBST ] stopped with ac2
+00018088197i[GDBST ] stepping
+00018088198i[GDBST ] stopped with ac2
+00018088198i[GDBST ] stepping
+00018088199i[GDBST ] stopped with ac2
+00018088199i[GDBST ] stepping
+00018088200i[GDBST ] stopped with ac2
+00018088200i[GDBST ] addr 00000000c0001f0d len 1
+00018088200i[GDBST ] addr 00000000c009efc0 len 40
+00018088200i[GDBST ] addr 00000000c009f000 len 40
+00018088200i[GDBST ] addr 00000000c000153e len 1
+00018088200i[GDBST ] Setting breakpoint at 00000000c000153e
+00442140000p[XGUI  ] >>PANIC<< POWER button turned off.
+00442140000i[CPU0  ] CPU is in protected mode (active)
+00442140000i[CPU0  ] CS.mode = 32 bit
+00442140000i[CPU0  ] SS.mode = 32 bit
+00442140000i[CPU0  ] EFER   = 0x00000000
+00442140000i[CPU0  ] | EAX=c000200d  EBX=000700d4  ECX=00000003  EDX=00000040
+00442140000i[CPU0  ] | ESP=c009efc0  EBP=c009efd8  ESI=00070000  EDI=00000000
+00442140000i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
+00442140000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00442140000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+00442140000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00442140000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00442140000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00442140000i[CPU0  ] |  FS:0000( 0005| 0|  0) 00000000 0000ffff 0 0
+00442140000i[CPU0  ] |  GS:0018( 0003| 0|  0) c00b8000 00007fff 1 1
+00442140000i[CPU0  ] | EIP=c0001fb0 (c0001fb0)
+00442140000i[CPU0  ] | CR0=0xe0000011 CR2=0x00000000
+00442140000i[CPU0  ] | CR3=0x00100000 CR4=0x00000000
+00442140000i[CPU0  ] 0xc0001fb0>> jmp .-2 (0xc0001fb0) : EBFE
+00442140000i[CMOS  ] Last time is 1712546192 (Mon Apr  8 11:16:32 2024)
+00442140000i[XGUI  ] Exit
+00442140000i[      ] restoring default signal behavior
+00442140000i[SIM   ] quit_sim called with exit code 1
