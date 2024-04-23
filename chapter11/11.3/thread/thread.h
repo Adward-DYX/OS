@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-04-11 09:19:13
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-04-23 09:33:18
+ * @LastEditTime: 2024-04-23 10:37:26
  * @FilePath: /OS/chapter9/9.2/thread/thread.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,6 +10,9 @@
 #define __THREAD_THREAD_H_
 #include "stdint.h"
 #include "list.h"
+#include "bitmap.h"
+#include "memory.h"
+
 /*自定义通用函数类型，它将在很多线程函数中作为形参类型*/
 typedef void thread_func(void*);
 
@@ -97,10 +100,15 @@ struct task_struct{
     uint32_t stack_magic;   //／栈的边界标记，用于检测栈的溢出
 };
 
+extern struct list thread_read_list;
+extern struct list thread_all_list;
+
 void thread_create(struct task_struct* pthread, thread_func function, void* func_arg);
 void init_thread(struct task_struct* pthread, char* name, int prio);
 struct task_struct* thread_start(char* name, int prio, thread_func function, void* func_arg);
 struct task_struct* running_thread(void);
+void thread_block(enum task_status stat);
+void thread_unblock(struct task_struct* pthread);
 void schedule(void);
 void thread_init(void);
 

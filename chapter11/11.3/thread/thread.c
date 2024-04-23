@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-04-11 09:19:18
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-04-23 11:29:16
+ * @LastEditTime: 2024-04-23 11:26:20
  * @FilePath: /OS/chapter9/9.2/thread/thread.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE:
  */
@@ -15,6 +15,7 @@
 #include "print.h"
 #include "memory.h"
 #include "list.h"
+#include "process.h"
 
 #define PG_SIZE 4096
 
@@ -159,6 +160,8 @@ void schedule(){
     //宏elem2en町的作用是将指针 elem_ptr 转换成 struct_type 类型的指针，其原理是用elem_ptr的地址减去 elem_ptr在结构体 struct_type 中的偏移量，此地址差便是结构体 struct_type 的起始地址，最后再将此地址差转换为 struct_type 指针类型
     struct task_struct* next = elem2entry(struct task_struct, general_tag, thread_tag);
     next->status = TASK_RUNNING;
+    /*激活任务页表等*/
+    process_activate(next);
     switch_to(cur,next);
 }
 
