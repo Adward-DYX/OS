@@ -1,0 +1,4 @@
+创建文件系统：
+1.创建超级块、i结点、目录项，主要是super_block.h,fs.h,inode.h,dir.h
+2.创建文件系统fs.c
+3.挂载分区
