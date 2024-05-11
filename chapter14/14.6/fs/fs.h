@@ -2,14 +2,14 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-05-07 11:06:32
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-05-10 14:17:14
+ * @LastEditTime: 2024-05-10 14:17:36
  * @FilePath: /OS/chapter14/14.2/fs/fs.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 #ifndef _FS_FS_H
 #define _FS_FS_H
 #include "stdint.h"
-#include "dir.h"
+#include "global.h"
 
 #define MAX_FILES_PER_PART 4096 //每个分区所支持最大创建的文件数
 #define BITS_PER_SECTOR 4096    //每扇区的位数
@@ -40,7 +40,8 @@ struct path_search_record{
 };
 
 extern struct partition* cur_part;
+void filesys_init(void);
 int32_t pathr_depth_cnt(char* pathname);
 int32_t sys_open(const char* pathname, uint8_t flags);
-void filesys_init(void);
+int32_t sys_close(int32_t fd);
 #endif // !_FS_FS_H
