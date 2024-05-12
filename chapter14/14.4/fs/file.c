@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-05-08 10:26:42
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-05-09 11:28:37
+ * @LastEditTime: 2024-05-12 18:12:21
  * @FilePath: /OS/chapter14/14.4/fs/file.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -67,7 +67,7 @@ int32_t block_bitmap_alloc(struct partition* part){
     int32_t bit_idx = bitmap_scan(&part->block_bitmap,1);
     if(bit_idx==-1) return -1;
     
-    bitmap_set(&part->inode_bitmap,bit_idx,1);
+    bitmap_set(&part->block_bitmap,bit_idx,1);
     /*和inode_bitmap_alloc不同，此处返回的不是位图索引，而是具体可用的扇区地址*/
     return (part->sb->data_start_lba+bit_idx);
 }

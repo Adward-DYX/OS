@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-05-07 11:09:28
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-05-10 14:01:14
+ * @LastEditTime: 2024-05-11 13:54:31
  * @FilePath: /OS/chapter14/14.2/fs/fs.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -23,6 +23,7 @@
 #include "string.h"
 #include "debug.h"
 #include "file.h"
+#include "console.h"
 
 
 struct partition* cur_part; //默认情况下操作的是那个分区
@@ -424,6 +425,31 @@ int32_t sys_close(int32_t fd){
         running_thread()->fd_table[fd] = -1;//使得文件描述符位可用
     }
     return ret;
+}
+
+/*将buf中连续count个字节写入文件描述符fd,成功则返回写入的字节数，失败返回-1*/
+int32_t sys_write(int32_t fd, const void* buf, uint32_t count){
+    if(fd<0){
+        printk("sys_write:fd error\n");
+        return -1;
+    }
+
+    if(fd==stdout_no){
+        char tmp_buf[1024] = {0};
+        memcpy(tmp_buf,buf,count);
+        console_put_str(tmp_buf);
+        return count;
+    }
+
+    uint32_t _fd = fd_local2global(fd);
+    struct file* wr_file = &file_table[_fd];
+    if(wr_file->fd_flag & O_WRONLY || wr_file->fd_flag & O_RDWR){
+        uint32_t bytes_written = file_write(wr_file,buf,count);
+        return bytes_written;
+    }else{
+        console_put_str("sys_write: not allowed to write file without flag O_RDWR or O_WRONLY\n");
+        return -1;
+    }
 }
 
 /*在磁盘上搜索文件系统，若没有则格式化分区创建文件系统*/

@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-05-08 10:21:33
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-05-10 10:31:30
+ * @LastEditTime: 2024-05-11 13:39:25
  * @FilePath: /OS/chapter14/14.4/fs/file.h
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -42,5 +42,6 @@ int32_t inode_bitmap_alloc(struct partition* part);
 int32_t block_bitmap_alloc(struct partition* part);
 void bitmap_sync(struct partition* part, uint32_t bit_idx, uint8_t btmp);
 int32_t file_create(struct dir* parent_dir, char* filename, uint8_t flag);
+int32_t file_write(struct file* file, const void* buf, uint32_t count);
 #endif // !__FS_FILE_H
 

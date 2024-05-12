@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-04-26 13:40:41
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-05-10 14:13:58
+ * @LastEditTime: 2024-05-11 13:53:51
  * @FilePath: /OS/chapter12/12.4/kernel/main.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -32,8 +32,9 @@ int main(void) {
    thread_start("k_thread_a", 31, k_thread_a, "I am thread_a");
    thread_start("k_thread_b", 31, k_thread_b, "I am thread_b");
    
-   uint32_t fd = sys_open("/file1",O_RDONLY);
+   uint32_t fd = sys_open("/file1",O_RDWR);
    printf("fd:%d\n",fd);
+   sys_write(fd,"hello,world\n",12);
    sys_close(fd);
    printf("%d closed now\n",fd);
    while(1);
