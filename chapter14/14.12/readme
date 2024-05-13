@@ -1,0 +1,6 @@
+遍历目录：
+1 实现打开目录和关闭目录
+
+2 读取一个目录项，实现readdir
+
+3 实现sys_readdir及sys_rewinddir
