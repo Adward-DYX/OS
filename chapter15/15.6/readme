@@ -1,0 +1,6 @@
+实现系统调用wait和exit
+1. wait和exit的作用
+2. 孤儿进程和僵尸进程
+3. 一些基础代码：PCB更改添加返回值，还要添加内存释放的函数 在thread.c中添加pid相关函数
+4. 实现wait和exit
+5. 实现cat命令

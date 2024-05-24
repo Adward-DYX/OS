@@ -1,0 +1,8 @@
+实现一个简单的shell
+
+1.shell雏形
+2.添加了Ctrl+u和Ctrl+l快捷键
+3.解析键入的字符
+4.添加系统调用
+5.路径解析
+6.实现ls、cd、mkdir、ps、rm命令
