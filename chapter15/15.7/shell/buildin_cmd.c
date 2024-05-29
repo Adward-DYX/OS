@@ -2,7 +2,7 @@
  * @Author: Adward-DYX 1654783946@qq.com
  * @Date: 2024-05-21 13:21:07
  * @LastEditors: Adward-DYX 1654783946@qq.com
- * @LastEditTime: 2024-05-24 13:55:20
+ * @LastEditTime: 2024-05-29 19:25:10
  * @FilePath: /OS/chapter15/15.4/shell/buildin_cmd.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -111,97 +111,96 @@ char* buildin_cd(uint32_t argc, char** argv){
 }
 
 
-/*ls命令的内建函数*/
-void buildin_ls(uint32_t argc, char** argv){
-    char* pathname = NULL;
-    struct stat file_stat;
-    memset(&file_stat,0,sizeof(struct stat));
-    bool long_info = false;
-    uint32_t arg_path_nr = 0;
-    uint32_t arg_idx = 1;   //跨过argv[0]，它是ls
-    while(arg_idx<argc){
-        if(argv[arg_idx][0] == '-'){    //如果是选项，单词的首字符是-
-            if(!strcmp("-l",argv[arg_idx])){    //如果是参数-l
-                long_info = true;
-            }else if(!strcmp("-h",argv[arg_idx])){  //参数-h
-                printf("usage: -l list all infomation about the file.\n-h for help\nlist all files in the current dirctory if no option\n");
-                return ;
-            }else{  //现在就只支持-h 和-l
-                printf("ls: invalid option %s\nTry 'ls -h' for more infomation.\n",argv[arg_idx]);
-                return;
-            }
-        }else { //ls路径
-            if(arg_path_nr == 0){
-                pathname = argv[arg_idx];
-                arg_path_nr = 1;
-            }else{
-                printf("ls: only support one path\n");
-                return ;
-            }
-        }
-        arg_idx++;
-    }
+/* ls命令的内建函数 */
+void buildin_ls(uint32_t argc, char** argv) {
+   char* pathname = NULL;
+   struct stat file_stat;
+   memset(&file_stat, 0, sizeof(struct stat));
+   bool long_info = false;
+   uint32_t arg_path_nr = 0;
+   uint32_t arg_idx = 1;   // 跨过argv[0],argv[0]是字符串“ls”
+   while (arg_idx < argc) {
+      if (argv[arg_idx][0] == '-') {	  // 如果是选项,单词的首字符是-
+	 if (!strcmp("-l", argv[arg_idx])) {         // 如果是参数-l
+	    long_info = true;
+	 } else if (!strcmp("-h", argv[arg_idx])) {   // 参数-h
+	    printf("usage: -l list all infomation about the file.\n-h for help\nlist all files in the current dirctory if no option\n"); 
+	    return;
+	 } else {	// 只支持-h -l两个选项
+	    printf("ls: invalid option %s\nTry `ls -h' for more information.\n", argv[arg_idx]);
+	    return;
+	 }
+      } else {	     // ls的路径参数
+	 if (arg_path_nr == 0) {
+	    pathname = argv[arg_idx];
+	    arg_path_nr = 1;
+	 } else {
+	    printf("ls: only support one path\n");
+	    return;
+	 }
+      }
+      arg_idx++;
+   } 
+   
+   if (pathname == NULL) {	 // 若只输入了ls 或 ls -l,没有输入操作路径,默认以当前路径的绝对路径为参数.
+      if (NULL != getcwd(final_path, MAX_PATH_LEN)) {
+	 pathname = final_path;
+      } else {
+	 printf("ls: getcwd for default path failed\n");
+	 return;
+      }
+   } else {
+      make_clear_abs_path(pathname, final_path);
+      pathname = final_path;
+   }
 
-    if(pathname == NULL){   //若只输入了ls或ls-l 没有输入操作路径，默认以当前路径的绝对路径为参数
-        if(NULL!=getcwd(final_path,MAX_PATH_LEN)){
-            pathname = final_path;
-        }else{
-            printf("ls: getcwd for default path failed\n");
-            return ;
-        }
-    }else{
-        make_clear_abs_path(pathname,final_path);
-        pathname = final_path;
-    }
-    
-    if(stat(pathname,&file_stat) == -1){
-        printf("ls :cannot access %s : No such file or directory\n",pathname);
-        return;
-    }
-
-    if(file_stat.st_filetype == FT_DIRECTORY){
-        struct dir* dir = opendir(pathname);
-        struct dir_entry* dir_e = NULL;
-        char sub_pathname[MAX_PATH_LEN] = {0};
-        uint32_t pathname_len = strlen(pathname);
-        uint32_t last_char_idx = pathname_len - 1;
-        memcpy(sub_pathname, pathname, pathname_len);
-        if(sub_pathname[last_char_idx] != '/'){
-            sub_pathname[pathname_len] = '/';
-            pathname_len++;
-        }
-        rewinddir(dir);
-        if(long_info){
-            char ftype;
-            printf("total: %d\n",file_stat.st_size);
-            while((dir_e = readdir(dir))){
-                ftype = 'd';
-                if(dir_e->f_type == FT_REGULAR){
-                    ftype = '-';
-                }
-                sub_pathname[pathname_len] = 0;
-                strcat(sub_pathname, dir_e->filename);
-                memset(&file_stat,0,sizeof(struct stat));
-                if(stat(sub_pathname, &file_stat) == -1){
-                    printf("ls: cannot access %s: No such file or firectory\n",dir_e->filename);
-                    return ;
-                }
-                printf("%c %d %d %s\n",ftype,dir_e->i_no,file_stat.st_size,dir_e->filename);
-            }
-        }else{
-            while((dir_e = readdir(dir))){
-                printf("%s ",dir_e->filename);
-            }
-            printf("\n");
-        }
-        closedir(dir);
-    }else{
-        if(long_info){
-            printf("- %d %d %s\n",file_stat.st_ino,file_stat.st_size,pathname);
-        }else{
-            printf("%s\n",pathname);
-        }
-    }
+   if (stat(pathname, &file_stat) == -1) {
+      printf("ls: cannot access %s: No such file or directory\n", pathname);
+      return;
+   }
+   if (file_stat.st_filetype == FT_DIRECTORY) {
+      struct dir* dir = opendir(pathname);
+      struct dir_entry* dir_e = NULL;
+      char sub_pathname[MAX_PATH_LEN] = {0};
+      uint32_t pathname_len = strlen(pathname);
+      uint32_t last_char_idx = pathname_len - 1;
+      memcpy(sub_pathname, pathname, pathname_len);
+      if (sub_pathname[last_char_idx] != '/') {
+	 sub_pathname[pathname_len] = '/';
+	 pathname_len++;
+      }
+      rewinddir(dir);
+      if (long_info) {
+	 char ftype;
+	 printf("total: %d\n", file_stat.st_size);
+	 while((dir_e = readdir(dir))) {
+	    ftype = 'd';
+	    if (dir_e->f_type == FT_REGULAR) {
+	       ftype = '-';
+	    } 
+	    sub_pathname[pathname_len] = 0;
+	    strcat(sub_pathname, dir_e->filename);
+	    memset(&file_stat, 0, sizeof(struct stat));
+	    if (stat(sub_pathname, &file_stat) == -1) {
+	       printf("ls: cannot access %s: No such file or directory\n", dir_e->filename);
+	       return;
+	    }
+	    printf("%c  %d  %d  %s\n", ftype, dir_e->i_no, file_stat.st_size, dir_e->filename);
+	 }
+      } else {
+	 while((dir_e = readdir(dir))) {
+	    printf("%s ", dir_e->filename);
+	 }
+	 printf("\n");
+      }
+      closedir(dir);
+   } else {
+      if (long_info) {
+	 printf("-  %d  %d  %s\n", file_stat.st_ino, file_stat.st_size, pathname);
+      } else {
+	 printf("%s\n", pathname);  
+      }
+   }
 }
 
 /*ps命令内建函数*/
